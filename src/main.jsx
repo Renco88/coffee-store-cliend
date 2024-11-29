@@ -4,21 +4,28 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import AddCoffee from './Components/AddCoffee.jsx'
 import UpdateCoffee from './Components/UpdateCoffee.jsx'
-import Root from './Components/Root.jsx'
+import Layout from './Components/Layout.jsx';
+import Home from './Components/Home.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root></Root>,
+    element: <Layout></Layout>,
     children: [
       {
-        path: "addcoffee",
-        element: <AddCoffee></AddCoffee>,
+        path: '/',
+        element: <Home></Home>,
+        loader: () => fetch('http://localhost:5000/coffee')
       },
       {
-        path: "updatecoffee",
+        path: 'addCoffee',
+        element: <AddCoffee></AddCoffee>
+      },
+      {
+        path: 'updateCoffee/:id',
         element: <UpdateCoffee></UpdateCoffee>,
       }
-    ],
+    ]
   },
 
 ]);
