@@ -114,6 +114,7 @@ const UpdateCoffee = () => {
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Update Coffee</button>
                     </div>
+                    <p>Alraedy have an account: <Link to="/signin">Sign in</Link></p>
                 </form>
             </div>
         </div>
